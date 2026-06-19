@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marwadi Studio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+header {
+background: transparent;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  height: 50px;
+  margin-right: 0.5rem;
+}
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.logo-text span {
+  font-weight: 300;
+}
+.book-now {
+  padding: 0.5rem 1rem;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.hero {
+  position: relative;
+  text-align: center;
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.hero-content {
+position: relative;
+z-index: 2;
+text-align: center;
+}
+
+
+
+.hero::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5); /* adjust opacity if needed */
+z-index: 1;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.hero p {
+width: 60%;
+margin: 1rem auto; /* <-- centers the element */
+font-size: 1rem;
+text-align: center;
+}
+
+
+
+.contact-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.toggle-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+.toggle-section span {
+  margin: 0 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+.toggle-section .active {
+  border-bottom: 2px solid #fff;
+}
+.gallery {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+.gallery.active {
+  display: grid;
+}
+.gallery img, .gallery video {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.services {
+    text-align: center;
+padding: 3rem 1rem;
+background-color: #111;
+}
+
+.services h2 {
+font-size: 1.75rem;
+margin-bottom: 1.5rem;
+}
+
+.services button {
+  margin: 0.5rem;
+padding: 0.75rem 1.5rem;
+border: none;
+background: #fff;
+color: #000;
+border-radius: 25px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-weight: 600;
+}
+
+.services button:hover {
+background: #ffcc00;
+color: #000;
+transform: translateY(-2px);
+box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+}
+
+
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #111;
+  color: #fff;
+}
+footer p {
+margin: 0.5rem 0;
+font-size: 1rem;
+}
+.footer-icons {
+margin-top: 1.5rem;
+display: flex;
+justify-content: center;
+gap: 1rem;
+flex-wrap: wrap;
+}
+.footer-icons a {
+color: #ffcc00;
+text-decoration: none;
+font-weight: bold;
+transition: color 0.3s ease;
+}
+.footer-icons a:hover {
+color: #fff;
+}
+
+.contact-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.5rem;
+max-width: 700px;
+margin: 1rem auto;
+text-align: center;
+}
+
+.contact-grid div {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+color: #fff;
+font-size: 1rem;
+font-weight: 500;
+}
+
+.contact-grid i {
+font-size: 20px;
+color: #fff;
+}
+
+.contact-grid a {
+color: white;
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+margin: 0.5rem 0;
+font-size: 1rem;
+}
+
+.contact-grid a:hover {
+color: #ffcc00; /* optional: highlight on hover */
+}
+
+/* ===============================
+RESPONSIVE STYLES
+=============================== */
+
+/* ---------- Tablets & Medium Devices (≤768px) ---------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .book-now {
+    margin-top: 0;
+    width: auto;
+    text-align: right;
+  }
+
+  .hero {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    width: 90%;
+    font-size: 0.95rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    padding: 1rem;
+  }
+
+  .services h2 {
+    font-size: 1.4rem;
+  }
+
+  .services button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem auto;
+    display: block;
+  }
+
+  .contact-grid {
+  grid-template-columns: 1fr;
+  padding: 1rem;
+  justify-items: center; /* Centers the grid items horizontally */
+  text-align: center;     /* Optional: centers the text inside the links */
+}
+
+
+  .footer-icons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* ---------- Mobile Devices (≤480px) ---------- */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.2rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .book-now,
+  .contact-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+}
+
+/* ---------- Very Small Phones (≤375px) ---------- */
+@media (max-width: 375px) {
+  .hero h1 {
+    font-size: 1rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+    width: 95%;
+  }
+
+  .book-now,
+  .contact-btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .services button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* ---------- Landscape Mode Phones (short height) ---------- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- Large Desktops (≥1200px) ---------- */
+@media (min-width: 1200px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    width: 50%;
+  }
+
+  .services h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ---------- Scalable Text Using clamp() (Optional) ---------- */
+.hero h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+
+  </style>
+  
+  <script>
+    function toggleGallery(type) {
+      const photoGallery = document.getElementById('photo-gallery');
+      const videoGallery = document.getElementById('video-gallery');
+      const photoTab = document.getElementById('photo-tab');
+      const videoTab = document.getElementById('video-tab');
+
+      if (type === 'photo') {
+        photoGallery.classList.add('active');
+        videoGallery.classList.remove('active');
+        photoTab.classList.add('active');
+        videoTab.classList.remove('active');
+      } else {
+        videoGallery.classList.add('active');
+        photoGallery.classList.remove('active');
+        videoTab.classList.add('active');
+        photoTab.classList.remove('active');
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo_no_bg.png" alt="Marwadi Logo">
+      <!-- <div class="logo-text">Marwadi <span>STUDIO</span></div> -->
+    </div>
+    <a href="https://wa.me/917023889971?text=Hi%20Abhishek%2C%20I%20would%20like%20to%20book%20a%20shoot!" target="_blank">
+        <button class="book-now"><i class="fas fa-paper-plane"></i> BOOK NOW</button>
+      </a>
+      
+  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>HELLO! <br> I’M ABHISHEK KACHCHHAWAH</h1>
+      <p>I’m a freelance photographer based in Rajasthan, specializing in people and portrait photography, videography, and photo editing. I love transforming ideas into visually stunning photos and videos.</p>
+
+        <p>If you’re looking for a passionate, creative, and thoughtful photographer or videographer — I’m here to bring your vision to life.</p>
+      <a href="https://wa.me/917023889971?text=Hi%20Abhishek%2C%20I%27m%20interested%20in%20your%20services." target="_blank">
+        <button class="contact-btn"><i class="fas fa-paper-plane"></i> CONTACT ME</button>
+      </a>
+    </div>
+  </section>
+  
+
+  <section class="toggle-section">
+    <span id="photo-tab" class="active" onclick="toggleGallery('photo')">PHOTOGRAPHY</span>
+    <span id="video-tab" onclick="toggleGallery('video')">VIDEOGRAPHY</span>
+  </section>
+
+  <section id="photo-gallery" class="gallery active">
+    <img src="photography/withmarwadi_14031228_230217032.jpg" alt="photo1">
+    <img src="photography/withmarwadi_14031228_230230109.jpg" alt="photo2">
+    <img src="photography/withmarwadi_14031228_230233164.jpg" alt="photo3">
+    <img src="photography/withmarwadi_14031228_230236363.jpg" alt="photo4">
+    <img src="photography/withmarwadi_14031228_230240010.jpg" alt="photo5">
+    <img src="photography/withmarwadi_14031228_230245283.jpg" alt="photo6">
+    <img src="photography/withmarwadi_14031228_230251417.jpg" alt="photo7">
+    <img src="photography/withmarwadi_14031228_230251441.jpg" alt="photo8">
+    <img src="photography/withmarwadi_14031228_230311661.jpg" alt="photo9">
+    <img src="photography/withmarwadi_14031228_230401825.jpg" alt="photo10">
+    <img src="photography/withmarwadi_14031228_230357705.jpg" alt="photo11">
+    <img src="photography/withmarwadi_14031228_230401796.jpg" alt="photo12">
+  </section>
+
+  <section id="video-gallery" class="gallery">
+    <video controls src="videogrpahy/jaitaranwale_14040120_230222985.mp4"></video>
+    <video controls src="videogrpahy/jaitaranwale_14040120_230317383.mp4"></video>
+    <video controls src="videogrpahy/jaitaranwale_14040120_230356966.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230020059.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230023496.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230025638.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230034593.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230037565.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230039859.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230042450.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230046835.mp4"></video>
+    <video controls src="videogrpahy/withmarwadi_14040120_230049243.mp4"></video>
+  </section>
+
+  <section class="services">
+    <h2>SERVICES WE PROVIDE</h2>
+    <button>Photography</button>
+    <button>Videography</button>
+    <button>Photo Editing</button>
+    <button>Event Photography & Videography</button>
+    <button>Creative Concept Shoots</button>
+    <button>Portrait Photography</button>
+  </section>
+
+  <footer>
+    <p>CONTACT US AT</p>
+    <div class="contact-grid">
+        <a href="tel:+917023889971"><i class="fas fa-phone-alt"></i> <span>+91 7023889971</span></a>
+        <a href="mailto:kachhawahabhishek9@gmail.com"><i class="fas fa-envelope"></i> <span>contact@withmarwadi.in</span></a>
+        <a href="https://wa.me/917023889971" target="_blank"><i class="fab fa-whatsapp"></i> <span>+91 7023889971</span></a>
+        <a href="https://www.instagram.com/jaitaranwale?igsh=cXU0NTJhODU1dWRi" target="_blank"><i class="fab fa-instagram"></i> <span>@jaitaranwale</span></a>
+        <a href="https://www.instagram.com/withmarwadi?igsh=MXZ3azE5Ym1rcjB3Mw==" target="_blank"><i class="fab fa-instagram"></i> <span>@withmarwadi</span></a>
+        <a href="https://www.facebook.com/share/1UC2dJatDT/" target="_blank"><i class="fab fa-facebook-f"></i> <span>@Jaitaran Wale </span></a>
+      </div>
+      
+  </footer>
+
+  <p style="margin-top: 2rem; font-size: 0.9rem; color: #aaa; text-align: center;">&copy; 2025 Marwadi Studio. All rights reserved.</p>
+
+  
+</body>
+</html>
